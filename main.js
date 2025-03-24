@@ -100,7 +100,16 @@ class LinkedList{
 
   // Returns the index of the node containing value, or null if not found
   find(value){
+    if (this.head === null) return null;
 
+    let currentNode = this.head;
+    let index = 0;
+    while(currentNode !== null){
+      if (currentNode.value == value) return index;
+      index++
+      currentNode = currentNode.nextNode;
+    }
+    return null;
   }
 
   // Represents your LinkedList objects as strings
@@ -131,7 +140,8 @@ linkedList.prepend(1);
 linkedList.append(2);
 linkedList.append(3);
 linkedList.append(4);
-console.log(linkedList.contains(1));
+console.log(linkedList.toString());
+console.log(linkedList.find(2));
 // console.log(linkedList.size());
 // console.log(linkedList.tail());
 // console.log(linkedList.at(0));
