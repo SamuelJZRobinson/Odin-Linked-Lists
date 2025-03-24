@@ -70,7 +70,20 @@ class LinkedList{
 
   // Removes the last element from the list
   pop(){
+    if (this.head === null) return null;
 
+    // One node
+    if (this.head.nextNode === null){
+      this.head = null;
+      return;
+    }
+
+    // Multiple nodes
+    let currentNode = this.head;
+    while(currentNode.nextNode !== null && currentNode.nextNode.nextNode !== null){
+      currentNode = currentNode.nextNode;
+    }
+    currentNode.nextNode = null;
   }
 
   // Returns true if the passed in value is in the list and otherwise returns false
@@ -109,7 +122,17 @@ class Node{
 let linkedList = new LinkedList();
 linkedList.prepend(4);
 linkedList.append(3);
-// console.log(linkedList.toString());
+linkedList.append(3);
+linkedList.append(3);
+console.log(linkedList.toString());
+linkedList.pop();
+console.log(linkedList.toString());
+linkedList.pop();
+console.log(linkedList.toString());
+linkedList.pop();
+console.log(linkedList.toString());
+linkedList.pop();
+console.log(linkedList.toString());
 // console.log(linkedList.size());
 // console.log(linkedList.tail());
-console.log(linkedList.at(0));
+// console.log(linkedList.at(0));
