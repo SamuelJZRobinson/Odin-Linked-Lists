@@ -88,7 +88,14 @@ class LinkedList{
 
   // Returns true if the passed in value is in the list and otherwise returns false
   contains(value){
+    if (this.head === null) return false;
 
+    let currentNode = this.head;
+    while(currentNode !== null){
+      if (currentNode.value == value) return true;
+      currentNode = currentNode.nextNode;
+    }
+    return false;
   }
 
   // Returns the index of the node containing value, or null if not found
@@ -120,19 +127,11 @@ class Node{
 }
 
 let linkedList = new LinkedList();
-linkedList.prepend(4);
+linkedList.prepend(1);
+linkedList.append(2);
 linkedList.append(3);
-linkedList.append(3);
-linkedList.append(3);
-console.log(linkedList.toString());
-linkedList.pop();
-console.log(linkedList.toString());
-linkedList.pop();
-console.log(linkedList.toString());
-linkedList.pop();
-console.log(linkedList.toString());
-linkedList.pop();
-console.log(linkedList.toString());
+linkedList.append(4);
+console.log(linkedList.contains(1));
 // console.log(linkedList.size());
 // console.log(linkedList.tail());
 // console.log(linkedList.at(0));
