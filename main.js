@@ -5,19 +5,16 @@ class LinkedList{
 
   // Insert at the end
   append(value){
-    // Check head null
     if (this.head == null){
-      this.prepend(value);
+      this.head = new Node(value);
       return;
     }
 
-    // Follow node chain until null
-    let newNode = Node(value);
     let currentNode = this.head;
     while(currentNode.nextNode != null){
       currentNode = currentNode.nextNode;
     }
-    currentNode.nextNode = newNode;
+    currentNode.nextNode = new Node(value);
     return;
   }
 
@@ -69,13 +66,23 @@ class LinkedList{
 
   // Represents your LinkedList objects as strings
   toString(){
-
+    if (this.head === null) return "null";
+    
+    let currentNode = this.head;
+    let linkedString = "";
+    
+    while (currentNode !== null){
+      linkedString += `( ${currentNode.value} ) -> `;
+      currentNode = currentNode.nextNode;
+    }
+    linkedString += "null";
+    return linkedString;
   }
 }
 
 class Node{
-  constructor (){
-    this.value = null;
+  constructor (value){
+    this.value = value;
     this.nextNode = null;
   }
 }
@@ -83,3 +90,4 @@ class Node{
 let linkedList = new LinkedList();
 linkedList.append(3);
 linkedList.prepend(4);
+console.log(linkedList.toString());
