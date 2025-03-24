@@ -58,7 +58,14 @@ class LinkedList{
 
   // Returns the node at the given index
   at(index){
+    let size = this.size();
+    if(index > size) return "out of range"
 
+    let currentNode = this.head;
+    for (let i = 0; i < index; i++) {
+      currentNode = currentNode.nextNode;
+    }
+    return currentNode;
   }
 
   // Removes the last element from the list
@@ -102,6 +109,7 @@ class Node{
 let linkedList = new LinkedList();
 linkedList.prepend(4);
 linkedList.append(3);
-console.log(linkedList.toString());
-console.log(linkedList.size());
-console.log(linkedList.tail());
+// console.log(linkedList.toString());
+// console.log(linkedList.size());
+// console.log(linkedList.tail());
+console.log(linkedList.at(0));
