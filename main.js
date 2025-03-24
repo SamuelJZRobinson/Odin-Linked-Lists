@@ -5,13 +5,13 @@ class LinkedList{
 
   // Insert at the end
   append(value){
-    if (this.head == null){
+    if (this.head === null){
       this.head = new Node(value);
       return;
     }
 
     let currentNode = this.head;
-    while(currentNode.nextNode != null){
+    while(currentNode.nextNode !== null){
       currentNode = currentNode.nextNode;
     }
     currentNode.nextNode = new Node(value);
@@ -29,9 +29,15 @@ class LinkedList{
 
   // Returns the total number of nodes in the list
   size(){
+    if (this.head === null) return 0;
+    
+    let currentNode = this.head;
     let total = 0;
-
-    // Follow node chain
+    while (currentNode !== null){
+      total++;
+      currentNode = currentNode.nextNode;
+    }
+    return total;
   }
 
   // Returns the first node in the list
@@ -91,3 +97,4 @@ let linkedList = new LinkedList();
 linkedList.append(3);
 linkedList.prepend(4);
 console.log(linkedList.toString());
+console.log(linkedList.size());
