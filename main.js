@@ -47,7 +47,13 @@ class LinkedList{
 
   // Returns the last node in the list
   tail(){
+    if (this.head === null) return null;
 
+    let currentNode = this.head;
+    while(currentNode.nextNode !== null){
+      currentNode = currentNode.nextNode;
+    }
+    return currentNode;
   }
 
   // Returns the node at the given index
@@ -94,7 +100,8 @@ class Node{
 }
 
 let linkedList = new LinkedList();
-linkedList.append(3);
 linkedList.prepend(4);
+linkedList.append(3);
 console.log(linkedList.toString());
 console.log(linkedList.size());
+console.log(linkedList.tail());
