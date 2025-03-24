@@ -136,12 +136,3 @@ class Node{
 }
 
 let linkedList = new LinkedList();
-linkedList.prepend(1);
-linkedList.append(2);
-linkedList.append(3);
-linkedList.append(4);
-console.log(linkedList.toString());
-console.log(linkedList.find(2));
-// console.log(linkedList.size());
-// console.log(linkedList.tail());
-// console.log(linkedList.at(0));
